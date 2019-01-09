@@ -1,0 +1,38 @@
+<section class="py-5">
+  <div class="container">
+
+    <h1>
+      <%= @media_inquiry.task.name %>
+    </h1>
+
+    <%= simple_format(@media_inquiry.task.notes) if @media_inquiry.task.notes %>
+
+    <% if @media_inquiry.comments.any? %>
+    <h2>Comments</h2>
+    <ul>
+      <% @media_inquiry.comments.each do |comment| %>
+      <li>
+        <strong>
+          <%= comment.created_by['name'] %> @ <%= comment.created_at %>:
+        </strong>
+        <%= simple_format(comment.text) %>
+      </li>
+      <% end %>
+    </ul>
+    <% end %>
+
+    <% if @media_inquiry.attachments.any? %>
+    <h2>Attachments</h2>
+    <ul>
+      <% @media_inquiry.attachments.each do |attachment| %>
+      <li>
+        <a href="<%= attachment.download_url %>" target="_blank">
+          <%= attachment.name %>
+        </a>
+      </li>
+      <% end %>
+    </ul>
+    <% end %>
+
+  </div>
+</section>
