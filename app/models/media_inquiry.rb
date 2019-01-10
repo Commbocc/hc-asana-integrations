@@ -20,7 +20,11 @@ class MediaInquiry
   end
 
   def comments
-    task.stories.select{ |s| s.resource_subtype == 'comment_added' }
+    task.stories.select{ |s| s.resource_subtype == 'comment_added' }.map do |s|
+      os = OpenStruct.new(s.to_h)
+      os.created_at = s.created_at.to_datetime.in_time_zone("Eastern Time (US & Canada)").to_formatted_s(:long)
+      os
+    end
   end
 
   def attachments
