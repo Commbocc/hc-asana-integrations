@@ -18,7 +18,11 @@ class MediaInquiriesController < ApplicationController
     @media_inquiry = MediaInquiry.new(media_inquiry_params)
     @media_inquiry.send_email
     @media_inquiry.clear_custom_field_trigger
-    render :show, formats: :json
+
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render :show, formats: :json }
+    end
   end
 
   private

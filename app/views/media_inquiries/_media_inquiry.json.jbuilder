@@ -1,4 +1,4 @@
-json.task media_inquiry.task, :id, :name
+json.task media_inquiry.task, :id, :name, :notes
 
 json.assignee media_inquiry.assignee, :id, :name, :email
 
