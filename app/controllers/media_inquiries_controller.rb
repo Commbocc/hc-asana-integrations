@@ -20,7 +20,7 @@ class MediaInquiriesController < ApplicationController
     @media_inquiry.clear_custom_field_trigger
 
     respond_to do |format|
-      format.html { render :show }
+      format.html { render :show, layout: false }
       format.json { render :show, formats: :json }
     end
   end
