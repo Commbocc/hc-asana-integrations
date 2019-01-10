@@ -26,7 +26,7 @@
     <ul>
       <% @media_inquiry.attachments.each do |attachment| %>
       <li>
-        <a href="<%= attachment.download_url %>" target="_blank">
+        <a href="<%= attachment.view_url %>" target="_blank">
           <%= attachment.name %>
         </a>
       </li>
