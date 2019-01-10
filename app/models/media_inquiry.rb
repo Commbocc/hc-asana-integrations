@@ -41,10 +41,4 @@ class MediaInquiry
     hash[ENV["ASANA_MI_CF_TRIGGER_ID"]] = ENV["ASANA_MI_CF_TRIGGER_SENT_ID"]
     task.update(custom_fields: hash)
   end
-
-  def send_email
-    # TODO: send email to assignee
-    puts "TODO: send email to assignee #{assignee.email}"
-  end
-
 end

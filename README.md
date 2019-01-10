@@ -8,7 +8,7 @@ Tasks within the [Media Inquiries](https://app.asana.com/0/823353078566958/82335
 
 ### Zapier
 
-The Workflow of the ZAP:
+The Workflow of the [Zap](https://zapier.com/app/editor/47959560/overview):
 
 1. `Updated Task in project` - Specifies the Asana Workspace & Project.
 2.  `Only Continue If...` - Sets a logic gate that only continues the workflow if the `156 - Ready for Email` custom field is set to `Ready for Email`.

@@ -16,7 +16,6 @@ class MediaInquiriesController < ApplicationController
   # POST /media_inquiries.json
   def create
     @media_inquiry = MediaInquiry.new(media_inquiry_params)
-    @media_inquiry.send_email
     @media_inquiry.clear_custom_field_trigger
 
     respond_to do |format|
