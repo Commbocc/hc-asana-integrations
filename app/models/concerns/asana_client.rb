@@ -12,6 +12,8 @@ module AsanaClient
   end
 
   included do
+    private
+
     def asana_client
       self.class.asana_client
     end

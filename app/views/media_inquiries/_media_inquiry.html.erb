@@ -17,16 +17,3 @@
   <% end %>
 </ul>
 <% end %>
-
-<% if media_inquiry.attachments.any? %>
-<h2>Attachments</h2>
-<ul>
-  <% media_inquiry.attachments.each do |attachment| %>
-  <li>
-    <a href="<%= attachment.view_url %>" target="_blank">
-      <%= attachment.name %>
-    </a>
-  </li>
-  <% end %>
-</ul>
-<% end %>

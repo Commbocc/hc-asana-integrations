@@ -16,7 +16,7 @@ class MediaInquiriesController < ApplicationController
   # POST /media_inquiries.json
   def create
     @media_inquiry = MediaInquiry.new(media_inquiry_params)
-    @media_inquiry.clear_custom_field_trigger
+    @media_inquiry.resolve
 
     respond_to do |format|
       format.html { render :show, layout: false }

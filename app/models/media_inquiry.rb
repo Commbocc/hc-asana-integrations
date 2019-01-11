@@ -21,9 +21,9 @@ class MediaInquiry
 
   def comments
     task.stories.select{ |s| s.resource_subtype == 'comment_added' }.map do |s|
-      os = OpenStruct.new(s.to_h)
-      os.created_at = s.created_at.to_datetime.in_time_zone("Eastern Time (US & Canada)").to_formatted_s(:long)
-      os
+      comment = OpenStruct.new(s.to_h)
+      comment.created_at = s.created_at.to_datetime.in_time_zone("Eastern Time (US & Canada)").to_formatted_s(:long)
+      comment
     end
   end
 
@@ -36,9 +36,17 @@ class MediaInquiry
 
   # methods
 
+  def resolve
+    # task_hash = { completed: true, custom_fields: clear_custom_field_trigger }
+    task_hash = { custom_fields: clear_custom_field_trigger }
+    task.update(task_hash)
+  end
+
+  private
+
   def clear_custom_field_trigger
-    hash = {}
-    hash[ENV["ASANA_MI_CF_TRIGGER_ID"]] = ENV["ASANA_MI_CF_TRIGGER_SENT_ID"]
-    task.update(custom_fields: hash)
+    custom_fields = {}
+    custom_fields[ENV["ASANA_MI_CF_TRIGGER_ID"]] = ENV["ASANA_MI_CF_TRIGGER_SENT_ID"]
+    custom_fields
   end
 end
