@@ -18,17 +18,17 @@ The Workflow of the [Zap](https://zapier.com/app/editor/47959560/overview):
     * __Data__ - The data (key:value) to be sent to the endpoint: `task_id` set to the ID of the updated task acquired from Step 1.
     * __Basic Auth__ - A pipe (`|`) separated username, password combo for [standard HTTP authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication). See `ASANA_MI_AUTH_NAME` & `ASANA_MI_AUTH_PASS` below.
 4. __Send Email__ - The Gmail integration that sends out the email.
-    * __To__ - The assignee's email acquired from Step 3.
+    * __To__ - The assignee's email acquired from Step 3: `assignee email`.
     * __From__ - The email of the Gmail account.
     * __From Name__ - The name that the email will say it's from.
     * __Subject__ - The subject of the sent message acquired from the updated task in Step 1.
     * __Body Type__ - Whether the body should use Rich or Plain text. Set to `HTML` for Rich Text.
-    * __Body__ - The body of the sent message acquired from Step 3.
-    * __Attachments__ - The attachments of the task acquired from Step 3 `download_url`.
+    * __Body__ - The body of the sent message acquired from Step 3: `html_body`.
+    * __Attachments__ - The attachments of the task acquired from Step 3: `attachments download_url`.
 
 ### Heroku ![Heroku](https://heroku-badge.herokuapp.com/?app=hc-asana-integrations)
 
-The [Environment Variables](https://devcenter.heroku.com/articles/config-vars) of the [Rails](https://rubyonrails.org/) application [above](https://github.com/Commbocc/hc-asana-integrations):
+The [Environment Variables](https://devcenter.heroku.com/articles/config-vars) of the [Rails](https://rubyonrails.org/) application [above](#):
 
 * `ASANA_MI_ACCESS_TOKEN` - The [access token](https://asana.com/guide/help/api/api#gl-access-tokens) of the asana user.
 * `ASANA_MI_DEFAULT_EMAIL_TO` - If a task has no assignee specified an email will be sent to the email set to this variable.
