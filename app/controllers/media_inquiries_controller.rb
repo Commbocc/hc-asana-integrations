@@ -1,5 +1,5 @@
 class MediaInquiriesController < ApplicationController
-  http_basic_authenticate_with name: ENV["ASANA_MI_AUTH_NAME"], password: ENV["ASANA_MI_AUTH_PASS"]
+  before_action :zap_basic_auth
   before_action :set_media_inquiry, only: [:show]
   protect_from_forgery except: :create
 

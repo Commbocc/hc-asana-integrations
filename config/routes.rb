@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   # get 'static_pages/index'
 
+  resources :custom_fields, only: [:index]
+  
+  resources :projects, only: [:show, :update]
+
   resources :media_inquiries, only: [:index, :show, :create]
 
   root 'static_pages#index'
