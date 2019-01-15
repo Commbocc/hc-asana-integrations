@@ -52,5 +52,9 @@ module AsanaClient
     def get_team(id)
       asana_client.teams.find_by_id(id, options: { expand: :description })
     end
+
+    def get_custom_field(id)
+      asana_client.custom_fields.find_by_id(id)
+    end
   end
 end
