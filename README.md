@@ -4,11 +4,11 @@
 
 The [Environment Variables](https://devcenter.heroku.com/articles/config-vars) of the [Rails](https://rubyonrails.org/) application [above](#):
 
-* `ASANA_WORKSPACE_ID` - The [asana workspace](https://asana.com/guide/help/workspaces/basics#gl-what-is-workspace) ID.
+* `BASIC_AUTH_NAME` - The Basic Authentication Username set in the webhook of the Zap.
+* `BASIC_AUTH_PASS` - The Basic Authentication Password set in the webhook of the Zap.
 * `ASANA_ACCESS_TOKEN` - The [access token](https://asana.com/guide/help/api/api#gl-access-tokens) of the asana user.
+* `ASANA_WORKSPACE_ID` - The [asana workspace](https://asana.com/guide/help/workspaces/basics#gl-what-is-workspace) ID.
 * `ASANA_MI_DEFAULT_EMAIL_TO` - If a task has no assignee specified an email will be sent to the email set to this variable.
-* `ASANA_MI_AUTH_NAME` - The Basic Authenticatrion Username set in the webhook of the Zap.
-* `ASANA_MI_AUTH_PASS` - The Basic Authenticatrion Password set in the webhook of the Zap.
 * `ASANA_MI_CF_TRIGGER_ID` - The ID of the Custom Field selection that will trigger the workflow, i.e. `937985225886128` for `Ready for Email`
 * `ASANA_MI_CF_TRIGGER_SENT_ID` The ID of the Custom Field selection that will be set upon completion, i.e. `973876117543966` for `Sent to Assignee`
 * `ASANA_PROJS_INC_SERVICE_REPORT_CFID` The ID of the Custom Field that will be added to each Project, i.e. `830100184474925` for `199 - Services`
@@ -49,7 +49,7 @@ The Workflow of the [Zap](https://zapier.com/app/editor/47959560/overview):
     * __URL__ - The _media_inquiries_ endpoint:  `https://hc-asana-integrations.herokuapp.com/media_inquiries.json`
     * __Payload Type__ - the format in which to send the data payload: Set to `Json`.
     * __Data__ - The data (key:value) to be sent to the endpoint: `task_id` set to the ID of the updated task acquired from Step 1.
-    * __Basic Auth__ - A pipe (`|`) separated username, password combo for [standard HTTP authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication). See `ASANA_MI_AUTH_NAME` & `ASANA_MI_AUTH_PASS` above.
+    * __Basic Auth__ - A pipe (`|`) separated username, password combo for [standard HTTP authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication). See `BASIC_AUTH_NAME` & `BASIC_AUTH_PASS` above.
 4. __Send Email__ - The Gmail integration that sends out the email.
     * __To__ - The assignee's email acquired from Step 3: `assignee email`.
     * __From__ - The email of the Gmail account.
@@ -86,7 +86,7 @@ The Workflow of the [Zap](https://zapier.com/app/editor/49997256/overview):
 1. __New Project__ - The trigger that runs when a project is created.
 2. __PUT__ - A webhook that sends the `PUT` request with the Project ID.
     * __URL__ - The _projects_ endpoint: `https://hc-asana-integrations.herokuapp.com/projects/{:id}.json` where `:id` is the ID of the created project acquired from step 1.
-    * __Basic Auth__ - A pipe (`|`) separated username, password combo for [standard HTTP authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication). See `ASANA_MI_AUTH_NAME` & `ASANA_MI_AUTH_PASS` above.
+    * __Basic Auth__ - A pipe (`|`) separated username, password combo for [standard HTTP authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication). See `BASIC_AUTH_NAME` & `BASIC_AUTH_PASS` above.
 
 ## Custom Fields
 

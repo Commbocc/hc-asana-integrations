@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   def zap_basic_auth
     authenticate_or_request_with_http_basic do |name, password|
-      name == ENV["ASANA_MI_AUTH_NAME"] && password == ENV["ASANA_MI_AUTH_PASS"]
+      name == ENV["BASIC_AUTH_NAME"] && password == ENV["BASIC_AUTH_PASS"]
     end
   end
   
