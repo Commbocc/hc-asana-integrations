@@ -17,8 +17,8 @@ module AsanaClient
     private
 
     def token
-      user = OpenStruct.new(token: ENV["ASANA_MI_ACCESS_TOKEN"])
-      user.token || ENV["ASANA_MI_ACCESS_TOKEN"]
+      user = OpenStruct.new(token: ENV["ASANA_ACCESS_TOKEN"])
+      user.token || ENV["ASANA_ACCESS_TOKEN"]
     end
   end
 
