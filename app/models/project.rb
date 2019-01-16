@@ -16,7 +16,11 @@ class Project < AsanaResource
     cfids = [ENV["ASANA_PROJS_INC_SERVICE_REPORT_CFID"]]
     cfids << @team.description.gsub(/\s+/, '').split(',')
     cfids.flatten!.each do |cfid|
-      project.add_custom_field_setting(custom_field: cfid, is_important: false) unless has_cf?(cfid)
+      begin
+        project.add_custom_field_setting(custom_field: cfid, is_important: false) unless has_cf?(cfid)
+      rescue
+        break
+      end
     end
   rescue
     false
