@@ -61,7 +61,9 @@ The Workflow of the [Zap](https://zapier.com/app/editor/47959560/overview):
 
 ## Projects
 
-`PUT: /projects/{:id}.json`
+The Projects endpoint finds an Asana project by `id`, takes the comma separated string of Custom Field IDs found in that Project's Team's Description field and adds those Custom Fields to the Project. See [Custom Fields](#custom-fields) for a list of all Custom Fields.
+
+`PUT/PATCH: /projects/{:id}.json`
 
 ```
 {
@@ -77,7 +79,7 @@ The Workflow of the [Zap](https://zapier.com/app/editor/47959560/overview):
 
 ### Asana
 
-Projects added to the `ASANA_WORKSPACE_ID` workspace triggers the following Zapier workflow. The workflow takes the comma separated string of Custom Field IDs found in the Project's Team's Description field and adds those Custom Fields to the Project.
+Projects added to the `ASANA_WORKSPACE_ID` workspace triggers the following Zapier workflow.
 
 ### Zapier
 
@@ -89,6 +91,8 @@ The Workflow of the [Zap](https://zapier.com/app/editor/49997256/overview):
     * __Basic Auth__ - A pipe (`|`) separated username, password combo for [standard HTTP authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication). See `BASIC_AUTH_NAME` & `BASIC_AUTH_PASS` above.
 
 ## Custom Fields
+
+Lists all Custom Fields of the `ASANA_WORKSPACE_ID`.
 
 `GET: /custom_fields.json`
 
