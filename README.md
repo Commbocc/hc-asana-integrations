@@ -77,7 +77,7 @@ The Workflow of the [Zap](https://zapier.com/app/editor/47959560/overview):
 
 ### Asana
 
-Projects added to the `ASANA_WORKSPACE_ID` workspace triggers the following Zapier workflow.
+Projects added to the `ASANA_WORKSPACE_ID` workspace triggers the following Zapier workflow. The workflow takes the comma separated string of Custom Field IDs found in the Project's Team's Description field and adds those Custom Fields to the Project.
 
 ### Zapier
 
