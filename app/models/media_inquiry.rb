@@ -43,7 +43,8 @@ class MediaInquiry
   def resolve
     # task_hash = { completed: true, custom_fields: clear_custom_field_trigger }
     task_hash = { custom_fields: clear_custom_field_trigger }
-    task.update(task_hash)
+    # task.update(task_hash)
+    asana_client.put("/tasks/#{@task_id}", body: task_hash)
   end
 
   private
