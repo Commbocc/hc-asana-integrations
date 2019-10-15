@@ -1,10 +1,9 @@
 class AsanaResource
   include AsanaClient
 
-  attr_reader :id, :gid
+  attr_reader :gid
 
-  def initialize(id: nil)
-    @id = id.to_i || nil
-    @gid = id.to_s || nil
+  def initialize(gid: nil)
+    @gid = gid.to_s || nil
   end
 end

@@ -1,8 +1,8 @@
 class Team < AsanaResource
   attr_reader :name, :description
 
-  def initialize(id: nil)
-    super(id: id)
+  def initialize(gid: nil)
+    super(gid: gid)
     @name = team.name
     @description = team.description
   end

@@ -1,1 +1,1 @@
-json.extract! project, :id, :gid, :name, :team, :custom_fields
+json.extract! project, :gid, :name, :team, :custom_fields

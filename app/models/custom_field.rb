@@ -7,8 +7,8 @@ class CustomField < AsanaResource
 
   attr_reader :name
 
-  def initialize(id: nil, cf: nil)
-    super(id: cf.present? ? cf.id : id)
+  def initialize(gid: nil, cf: nil)
+    super(gid: cf.present? ? cf.gid : gid)
     _cf = cf.present? ? cf : custom_field
     @name = _cf.name
   end

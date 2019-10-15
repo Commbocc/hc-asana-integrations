@@ -1,10 +1,10 @@
 class Project < AsanaResource
   attr_reader :name, :team, :custom_fields
 
-  def initialize(id: nil)
-    super(id: id)
+  def initialize(gid: nil)
+    super(gid: gid)
     @name = project.name
-    @team = Team.new(id: project.team['gid'])
+    @team = Team.new(gid: project.team['gid'])
     @custom_fields = project.custom_field_settings
   rescue
     nil
