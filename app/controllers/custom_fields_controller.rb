@@ -1,5 +1,5 @@
 class CustomFieldsController < ApplicationController
-  before_action :zap_basic_auth
+  before_action :zap_basic_auth, except: :index
 
   # GET /custom_fields
   # GET /custom_fields.json
